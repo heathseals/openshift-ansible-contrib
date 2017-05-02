@@ -502,7 +502,7 @@ def launch_refarch_env(console_port=8443,
     #else:
     #   command='docker run -t --rm --volume `pwd`:/opt/ansible:z -v ~/.ssh:/root/.ssh:z -v /tmp:/tmp:z --net=host ansible:2.2-latest'
     command='ansible-playbook'
-    command=command + ' --extra-vars "@./infrastructure.json" --tags %s -e \'vcenter_host=%s \
+    command=command + ' -vvvv --extra-vars "@./infrastructure.json" --tags %s -e \'vcenter_host=%s \
     vcenter_username=%s \
     vcenter_password=%s \
     vcenter_template_name=%s \

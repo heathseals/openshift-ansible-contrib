@@ -4,6 +4,7 @@
     hostname: "{{ vcenter_host }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: false
     name: "{{ item.value.guestname }}"
     cluster: "{{ vcenter_cluster}}"
     datacenter: "{{ vcenter_datacenter }}"
@@ -35,6 +36,7 @@
     vcenter_hostname: "{{ vcenter_host }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: false
     vmware_guest_facts: yes
     guest: "{{ item.value.guestname }}"
   with_dict: "{{host_inventory}}"

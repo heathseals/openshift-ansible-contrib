@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # (c) 2017, Davis Phillips davis.phillips@gmail.com

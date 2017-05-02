@@ -42,6 +42,7 @@
         guest: "{{ item.value.guestname }}"
         state: absent
         force: true
+        validate_certs: false
       with_dict: "{{production_hosts}}"
 
     - name: Delete infrastructure VMs on vCenter
@@ -52,6 +53,7 @@
         guest: "{{ item.value.guestname }}"
         state: absent
         force: true
+        validate_certs: false
       with_dict: "{{infrastructure_hosts}}"
 
 - hosts: localhost
@@ -70,6 +72,7 @@
         cluster: "{{ vcenter_cluster}}"
         resource_pool: "{{ vcenter_resource_pool }}"
         state: "absent"
+        validate_certs: false
     - name: "Remove folder on vCenter"
       vmware_folder:
         hostname: "{{ vcenter_host }}"
@@ -79,3 +82,4 @@
         cluster: "{{ vcenter_cluster}}"
         folder: "{{ vcenter_folder }}"
         state: "absent"
+        validate_certs: false

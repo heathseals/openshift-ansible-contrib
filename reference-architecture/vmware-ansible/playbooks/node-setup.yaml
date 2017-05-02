@@ -19,7 +19,7 @@
     openshift_node_local_quota_per_fsgroup: 512Mi
     openshift_master_cluster_method: native
     openshift_cloudprovider_kind: vsphere
-    deployment_type:
-    load_balancer_hostname:
+    deployment_type: origin
+    load_balancer_hostname: ocp-haproxy-0.nodata.org
     openshift_master_cluster_hostname: "{{ load_balancer_hostname }}"
     openshift_master_cluster_public_hostname: "{{ load_balancer_hostname }}"

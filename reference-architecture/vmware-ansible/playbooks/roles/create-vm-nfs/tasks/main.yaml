@@ -4,6 +4,7 @@
     hostname: "{{ vcenter_host }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: false
     name: "{{ item.value.guestname }}"
     cluster: "{{ vcenter_cluster}}"
     datacenter: "{{ vcenter_datacenter }}"
@@ -35,9 +36,10 @@
     vcenter_hostname: "{{ vcenter_host }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
-    vmware_guest_facts: yes
+    vmware_guest_facts: true
+    validate_certs: false
     guest: "{{ item.value.guestname }}"
-  with_dict: "{{host_inventory}}"
+  with_dict: "{{ host_inventory }}"
   when: "'nfs' in item.value.guestname"
   register: actual_nfs_host
   until: actual_nfs_host.ansible_facts.hw_eth0.ipaddresses[0] is defined
